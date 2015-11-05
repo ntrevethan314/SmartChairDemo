@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Smart Chair Demo</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sensor_launcher">SensorLauncher</string>
+    <string name="title_activity_location">Location</string>
+
+    <string name="BeginACC_Button">BEGIN ACC. SENSOR</string>
+    <string name="BeginRVM_Button">BEGIN RoV. SENSOR</string>
+    <string name="BeginLOC_Button">BEGIN LOC. SENSOR</string>
+    <string name="BeginBLE_Button">BEGIN BLE. SENSOR</string>
+    <string name="Detect_Sensors">Detect Sensors</string>
+
+    <string name="acc_units"><b><i><small> <sup> m  </sup></small>/ <small><sub>s<sup>2</sup> </sub>  </small></i></b>   </string>
+    <string name="rov_units">degrees</string>
+    <string name="title_activity_acc__sensor">ACC_Sensor</string>
+    <string name="title_activity_ro_v__sensor">RoV_Sensor</string>
+
+
+
+    <string name="lbl_you_are_at">YOU ARE AT</string>
+    <string name="btn_get_location">GET MY LOCATION</string>
+    <string name="btn_start_location_updates">START LOCATION UPDATES</string>
+    <string name="btn_stop_location_updates">STOP LOCATION UPDATES</string>
+
+</resources>
