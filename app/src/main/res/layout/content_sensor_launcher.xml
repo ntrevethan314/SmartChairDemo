@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/view_bg"
+    android:gravity="center"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -14,33 +16,51 @@
     tools:showIn="@layout/activity_sensor_launcher">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="54dp"
         android:gravity="center"
         android:text="@string/title_activity_sensor_launcher"
-        android:textSize="24sp" />
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:textStyle="bold" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/btn_bg"
         android:gravity="center"
         android:onClick="BeginACC"
-        android:text="@string/BeginACC_Button" />
+        android:padding="8dp"
+        android:text="@string/BeginACC_Button"
+        android:textColor="@color/white"
+        android:textSize="24dp" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/btn_bg"
         android:gravity="center"
         android:onClick="BeginRoV"
-        android:text="@string/BeginRVM_Button" />
+        android:padding="8dp"
+        android:text="@string/BeginRVM_Button"
+        android:textColor="@color/white"
+        android:textSize="24dp" />
 
 
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/DetecSensorsbttn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/btn_bg"
         android:gravity="center"
         android:onClick="DetectSensors"
-        android:text="@string/Detect_Sensors" />
+        android:padding="8dp"
+        android:text="@string/Detect_Sensors"
+        android:textColor="@color/white"
+        android:textSize="24dp" />
 
 </LinearLayout>

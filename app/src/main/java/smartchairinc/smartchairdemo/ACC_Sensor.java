@@ -19,12 +19,13 @@ public class ACC_Sensor extends AppCompatActivity implements SensorEventListener
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
 
-    private float x[] = {0, 0, System.nanoTime(), System.nanoTime()+5}; // [Current, New, Old_Time, New_Time]
-    private float y[] = {0, 0, System.nanoTime(), System.nanoTime()+5}; // [Current, New, Old_Time, New_Time]
-    private float z[] = {0, 0, System.nanoTime(), System.nanoTime()+5}; // [Current, New, Old_Time, New_Time]
+    private float refresh = 9999999; // Min. difference between sensor updates
+    private float x[] = {0, 0, System.nanoTime(), System.nanoTime()+ refresh}; // [Current, New, Old_Time, New_Time]
+    private float y[] = {0, 0, System.nanoTime(), System.nanoTime()+refresh}; // [Current, New, Old_Time, New_Time]
+    private float z[] = {0, 0, System.nanoTime(), System.nanoTime()+refresh}; // [Current, New, Old_Time, New_Time]
 
     //private double time[] = {System.nanoTime(),System.nanoTime()+1}; // [Old, New]
-    private double refresh = 9999999; // Min. difference between sensor updates
+
     //private double Gravity = 9.81;
 
     @Override
@@ -48,7 +49,7 @@ public class ACC_Sensor extends AppCompatActivity implements SensorEventListener
             x[3] = System.nanoTime();
             y[1] = event.values[1];
             y[3] = System.nanoTime();
-            z[1] = event.values[2];
+            z[1] = -event.values[2];
             z[3] = System.nanoTime();
 
             X_Value_Modifier();

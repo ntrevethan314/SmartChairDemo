@@ -1,5 +1,6 @@
 package smartchairinc.smartchairdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,74 +31,63 @@ public class Location extends AppCompatActivity implements GoogleApiClient.Conne
     // Google client to interact with Google API
     private GoogleApiClient mGoogleApiClient;
 
-    // boolean flag to toggle periodic location updates
-    private boolean mRequestingLocationUpdates = false;
+    // NEW VARIABLES
+    private double[] LOC = {0, 0}; // Latitude, Longitude
 
-    private LocationRequest mLocationRequest;
 
-    // Location updates intervals in sec
-    private static int UPDATE_INTERVAL = 10000; // 10 sec
-    private static int FATEST_INTERVAL = 5000; // 5 sec
-    private static int DISPLACEMENT = 10; // 10 meters
+/**    // boolean flag to toggle periodic location updates
+ private boolean mRequestingLocationUpdates = false;
 
+ private LocationRequest mLocationRequest;
+
+ // Location updates intervals in sec
+ private static int UPDATE_INTERVAL = 10000; // 10 sec
+ private static int FATEST_INTERVAL = 5000; // 5 sec
+ private static int DISPLACEMENT = 10; // 10 meters
+ */
     // UI elements
-    private TextView lblLocation;
-    private Button btnShowLocation, btnStartLocationUpdates;
+    //private TextView lblLocation;
+
+    /**
+     * private Button btnShowLocation, btnStartLocationUpdates;
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-
-        lblLocation = (TextView) findViewById(R.id.lblLocation);
-        btnShowLocation = (Button) findViewById(R.id.btnShowLocation);
-        btnStartLocationUpdates = (Button) findViewById(R.id.btnLocationUpdates);
 
         // First we need to check availability of play services
         if (checkPlayServices()) {
-
             // Building the GoogleApi client
             buildGoogleApiClient();
         }
-
-        // Show location button click listener
-        btnShowLocation.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                displayLocation();
-            }
-        });
     }
 
 
     /**
      * Method to display the location on UI
-     * */
-    private void displayLocation() {
+     */
+    public void displayLocation(View view) {
 
         mLastLocation = LocationServices.FusedLocationApi
                 .getLastLocation(mGoogleApiClient);
 
-        if (mLastLocation != null) {
-            double latitude = mLastLocation.getLatitude();
-            double longitude = mLastLocation.getLongitude();
+        TextView Location = (TextView) findViewById(R.id.lblLocation);
 
-            lblLocation.setText(latitude + ", " + longitude);
+        if (mLastLocation != null) {
+            LOC[0] = mLastLocation.getLatitude();
+            LOC[1] = mLastLocation.getLongitude();
+            Location.setText(String.format("Latitude: %.4f\nLongitude: %.4f", LOC[0], LOC[1]));
 
         } else {
-
-            lblLocation
-                    .setText("(Couldn't get the location. Make sure location is enabled on the device)");
+            Location.setText("(Couldn't get the location. Make sure location is enabled on the device)");
         }
     }
 
     /**
      * Creating google api client object
-     * */
+     */
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -107,7 +97,7 @@ public class Location extends AppCompatActivity implements GoogleApiClient.Conne
 
     /**
      * Method to verify google play services on the device
-     * */
+     */
     private boolean checkPlayServices() {
         int resultCode = GooglePlayServicesUtil
                 .isGooglePlayServicesAvailable(this);
@@ -152,13 +142,19 @@ public class Location extends AppCompatActivity implements GoogleApiClient.Conne
 
     @Override
     public void onConnected(Bundle arg0) {
-
-        // Once connected with google api, get the location
-        displayLocation();
     }
 
     @Override
     public void onConnectionSuspended(int arg0) {
         mGoogleApiClient.connect();
+    }
+
+    public void BeginMaps(View view) {
+        displayLocation(view);
+        Intent myIntent = new Intent(Location.this, MapsActivity.class);
+        myIntent.putExtra("Latitude", LOC[0]);
+        myIntent.putExtra("Longitude", LOC[1]);
+        Location.this.startActivity(myIntent);
+
     }
 }

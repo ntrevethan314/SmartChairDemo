@@ -56,4 +56,5 @@ public class LaunchScreen extends AppCompatActivity {
         LaunchScreen.this.startActivity(myIntent);
 
     }
+
 }

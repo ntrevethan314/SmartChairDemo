@@ -48,16 +48,20 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="@string/btn_get_location"
-        android:textColor="@color/white" />
+        android:textSize="24dp"
+        android:textColor="@color/white"
+        android:onClick="displayLocation"/>
 
     <Button
         android:id="@+id/btnLocationUpdates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
         android:background="@color/btn_bg"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="@string/btn_start_location_updates"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:onClick="BeginMaps"
+        android:textSize="24dp"/>
 </LinearLayout>

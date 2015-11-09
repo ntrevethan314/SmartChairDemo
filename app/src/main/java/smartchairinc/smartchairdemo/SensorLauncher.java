@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -22,6 +23,8 @@ public class SensorLauncher extends AppCompatActivity {
         setContentView(R.layout.activity_sensor_launcher);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Button findsensorbttn = (Button) findViewById(R.id.DetecSensorsbttn);
+        findsensorbttn.setVisibility(View.GONE);
     }
 
     public void BeginACC(View view){

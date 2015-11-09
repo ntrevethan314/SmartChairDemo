@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/view_bg"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,13 +16,15 @@
 
 
     <TextView
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:gravity="center_horizontal"
-        android:text="Accelerometer Values"
+        android:text="Acceleration"
         android:textAllCaps="true"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="X:"
+                android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
             <TextView
@@ -46,14 +50,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:text="VALUE"
-                android:textColor="#B20000"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8sp"
-                android:text="@string/acc_units" />
+                android:text="@string/acc_units"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
@@ -67,6 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Y:"
+                android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
             <TextView
@@ -75,14 +81,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:text="VALUE"
-                android:textColor="#B20000"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8sp"
-                android:text="@string/acc_units" />
+                android:text="@string/acc_units"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
@@ -96,6 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Z:"
+                android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
             <TextView
@@ -104,27 +112,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:text="VALUE"
-                android:textColor="#B20000"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8sp"
-                android:text="@string/acc_units" />
+                android:text="@string/acc_units"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <ImageView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:maxWidth="400dp"
-        android:maxHeight="250dp"
-        android:scaleType="fitCenter"
         android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:maxHeight="250dp"
+        android:maxWidth="400dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/axis_device" />
 
 </LinearLayout>
